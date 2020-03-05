@@ -1,0 +1,16 @@
+export DEV_FOLDER="dev"
+
+#General
+alias b="cd ~/ && open -e .bash_profile"
+alias dd="cd ~/ && cd $DEV_FOLDER"
+alias c=clear
+alias d="cd ~/ && cd desktop"
+alias o="open ."
+alias ..="cd .."
+alias mkd="mkdir"
+
+#Git
+alias gf="git fetch"
+alias gp="git pull"
+alias gc="git commit"
+alias gs="git status"
