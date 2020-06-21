@@ -1,16 +1,27 @@
 export DEV_FOLDER="dev"
+export MONGO_DATA_PATH="~/data"
 
 #General
-alias b="cd ~/ && open -e .bash_profile"
+alias a="cd ~/ && open -e .aliases"
+alias z="cd ~/ && open -e .zshrc"
 alias dd="cd ~/ && cd $DEV_FOLDER"
-alias c=clear
+alias c="clear"
 alias d="cd ~/ && cd desktop"
 alias o="open ."
 alias ..="cd .."
 alias mkd="mkdir"
 
 #Git
+alias gs="git status"
 alias gf="git fetch"
 alias gp="git pull"
+alias gc="git clone"
 alias gc="git commit"
-alias gs="git status"
+alias gca="git commit --amend --no-edit"
+
+#Docker
+alias di="docker images"
+alias dr="docker run"
+alias dp="docker ps"
+alias dk="docker kill"
+alias drm="docker run -d -p 27017:27017 -v $MONGO_DATA_PATH:/data/db mongo"
