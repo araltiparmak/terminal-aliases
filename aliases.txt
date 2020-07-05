@@ -2,16 +2,22 @@ export DEV_FOLDER="dev"
 export MONGO_DATA_PATH="~/data"
 
 #General
-alias a="cd ~/ && open -e .aliases"
-alias z="cd ~/ && open -e .zshrc"
-alias dd="cd ~/ && cd $DEV_FOLDER"
+alias a="open -e ~/.aliases"
+alias z="open -e ~/.zshrc"
+alias dd="cd ~/$DEV_FOLDER"
 alias c="clear"
-alias d="cd ~/ && cd desktop"
+alias d="cd ~/desktop"
 alias o="open ."
 alias ..="cd .."
 alias md="mkdir"
 
+mc() {
+   mkdir -p $1
+   cd $1
+}
+
 #Git
+alias add="git add ."
 alias gs="git status"
 alias gf="git fetch"
 alias gp="git pull"
