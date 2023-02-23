@@ -1,5 +1,4 @@
 export DEV_FOLDER="dev"
-export MONGO_DATA_PATH="~/data"
 
 #General
 alias a="open -e ~/.aliases"
@@ -11,11 +10,6 @@ alias o="open ."
 alias ..="cd .."
 alias md="mkdir"
 
-mc() {
-   mkdir -p $1
-   cd $1
-}
-
 #Git
 alias add="git add ."
 alias gs="git status"
@@ -25,6 +19,18 @@ alias gl="git clone"
 alias gc="git commit"
 alias gca="git commit --amend --no-edit"
 
+#Yarn
+alias yi="yarn install"
+alias ys="yarn start"
+alias yl="yarn lint"
+alias yv="yarn vite"
+
+#Terraform
+alias ti="terraform init"
+alias tp="terraform plan"
+alias tf="terraform fmt -recursive"
+alias tv="terraform validate"
+
 #Docker
 alias di="docker images"
 alias dr="docker run"
@@ -32,4 +38,8 @@ alias dp="docker ps"
 alias dk="docker kill"
 alias dcb="docker-compose build"
 alias dcu="docker-compose up"
-alias drm="docker run -d -p 27017:27017 -v $MONGO_DATA_PATH:/data/db mongo"
+
+mc() {
+   mkdir -p $1
+   cd $1
+}
