@@ -1,16 +1,16 @@
 export DEV_FOLDER="dev"
 
-#General
+#general
 alias a="open -e ~/.aliases"
 alias z="open -e ~/.zshrc"
+alias d="cd ~/desktop"
 alias dd="cd ~/$DEV_FOLDER"
 alias c="clear"
-alias d="cd ~/desktop"
 alias o="open ."
 alias ..="cd .."
 alias md="mkdir"
 
-#Git
+#git
 alias add="git add ."
 alias gs="git status"
 alias gf="git fetch"
@@ -19,19 +19,25 @@ alias gl="git clone"
 alias gc="git commit"
 alias gca="git commit --amend --no-edit"
 
-#Yarn
+#yarn
 alias yi="yarn install"
 alias ys="yarn start"
 alias yl="yarn lint"
-alias yv="yarn vite"
+alias yf="yarn format"
 
-#Terraform
+#bun
+alias bi="bun install"
+alias bs="bun start"
+alias bl="bun lint"
+alias bf="bun format"
+
+#terraform
 alias ti="terraform init"
 alias tp="terraform plan"
 alias tf="terraform fmt -recursive"
 alias tv="terraform validate"
 
-#Docker
+#docker
 alias di="docker images"
 alias dr="docker run"
 alias dp="docker ps"
