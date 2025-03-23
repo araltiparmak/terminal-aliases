@@ -1,7 +1,10 @@
-export DEV_FOLDER="dev"
+# Define base directories
+export DEV_FOLDER="$HOME/dev"
+export REPO_NAME="terminal-aliases"
+export REPO_PATH="$DEV_FOLDER/$REPO_NAME"
 
-#general
-alias a="open -e ~/.aliases"
+# general
+alias a="open -e ~/$DEV_FOLDER/$REPO_NAME/aliases"
 alias z="open -e ~/.zshrc"
 alias d="cd ~/desktop"
 alias dd="cd ~/$DEV_FOLDER"
@@ -9,8 +12,9 @@ alias c="clear"
 alias o="open ."
 alias ..="cd .."
 alias md="mkdir"
+alias ua="cd ~/$REPO_NAME && git pull && source ~/$REPO_NAME/aliases"
 
-#git
+# git
 alias add="git add ."
 alias gs="git status"
 alias gf="git fetch"
@@ -19,33 +23,48 @@ alias gl="git clone"
 alias gc="git commit"
 alias gca="git commit --amend --no-edit"
 
-#yarn
+# yarn
 alias yi="yarn install"
+alias yb="yarn build"
 alias ys="yarn start"
 alias yl="yarn lint"
 alias yf="yarn format"
 
-#bun
+# bun
 alias bi="bun install"
 alias bs="bun start"
 alias bl="bun lint"
 alias bf="bun format"
 
-#terraform
+# terraform
 alias ti="terraform init"
 alias tp="terraform plan"
+alias ta="terraform apply"
+alias ta-ap="terraform apply -auto-approve"
 alias tf="terraform fmt -recursive"
 alias tv="terraform validate"
 
-#docker
+# docker
 alias di="docker images"
 alias dr="docker run"
 alias dp="docker ps"
 alias dk="docker kill"
-alias dcb="docker-compose build"
-alias dcu="docker-compose up"
+alias dcb="docker compose build"
+alias dcu="docker compose up"
+
+# trunk
+alias tc="trunk check"
+
 
 mc() {
    mkdir -p $1
    cd $1
 }
+
+update_aliases() {
+    echo "Updating aliases from repository..."
+    (cd "$REPO_PATH" && git pull) &&
+    source "$REPO_PATH/aliases" &&
+    echo "✅ Aliases updated successfully!"
+}
+alias ua="update_aliases"
