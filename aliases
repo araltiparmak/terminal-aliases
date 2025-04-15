@@ -1,5 +1,5 @@
 # Define base directories
-export DEV_FOLDER="$HOME/dev"
+export DEV_FOLDER="dev"
 export REPO_NAME="terminal-aliases"
 export REPO_PATH="$DEV_FOLDER/$REPO_NAME"
 
