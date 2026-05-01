@@ -14,8 +14,12 @@ alias ..="cd .."
 alias md="mkdir"
 alias ua="cd ~/$REPO_NAME && git pull && source ~/$REPO_NAME/aliases"
 
+# claude
+alias cc="claude"
+
 # git
 alias add="git add ."
+alias gi="git init"
 alias gs="git status"
 alias gf="git fetch"
 alias gp="git pull"
@@ -27,8 +31,14 @@ alias gca="git commit --amend --no-edit"
 alias yi="yarn install"
 alias yb="yarn build"
 alias ys="yarn start"
+alias yw="yarn web"
+alias yt="yarn test"
 alias yl="yarn lint"
 alias yf="yarn format"
+
+# npm
+alias ni="npm init -y"
+alias ns="npm run start"
 
 # bun
 alias bi="bun install"
@@ -44,16 +54,28 @@ alias ta-ap="terraform apply -auto-approve"
 alias tf="terraform fmt -recursive"
 alias tv="terraform validate"
 
+# terragrunt
+alias tg="terragrunt"
+alias tgp="terragrunt plan"
+alias tga="terragrunt apply"
+alias tgv="terragrunt validate"
+alias tgf="terragrunt hcl fmt"
+
 # docker
 alias di="docker images"
 alias dr="docker run"
 alias dp="docker ps"
 alias dk="docker kill"
+alias dka="docker ps -q | xargs -r docker kill"
 alias dcb="docker compose build"
 alias dcu="docker compose up"
 
-# trunk
-alias tc="trunk check"
+# java
+alias jv="java -version"
+
+# gradle
+alias gb="gradle build"
+alias gbr="gradle bootRun"
 
 
 mc() {
