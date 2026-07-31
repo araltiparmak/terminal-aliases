@@ -101,4 +101,4 @@ alias ua="update_aliases"
 alias bu='brew update && brew upgrade && brew autoremove && brew cleanup'
 
 # react scaffold — scaffolds ~/dev/<name> (see scripts/cra.sh)
-alias cra="$HOME/dev/terminal-aliases/scripts/cra.sh"
+alias cra="$REPO_PATH/scripts/cra.sh"
