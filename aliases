@@ -15,6 +15,7 @@ alias md="mkdir"
 
 # claude
 alias cc="claude"
+alias cs="open -e ~/.claude/settings.json"
 
 # git
 alias add="git add ."
