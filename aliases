@@ -1,7 +1,7 @@
 # Define base directories
 export DEV_FOLDER="dev"
 export REPO_NAME="terminal-aliases"
-export REPO_PATH="$DEV_FOLDER/$REPO_NAME"
+export REPO_PATH="$HOME/$DEV_FOLDER/$REPO_NAME"
 
 # general
 alias a="open -e ~/$DEV_FOLDER/$REPO_NAME/aliases"
@@ -12,7 +12,6 @@ alias c="clear"
 alias o="open ."
 alias ..="cd .."
 alias md="mkdir"
-alias ua="cd ~/$REPO_NAME && git pull && source ~/$REPO_NAME/aliases"
 
 # claude
 alias cc="claude"
@@ -45,6 +44,13 @@ alias bi="bun install"
 alias bs="bun start"
 alias bl="bun lint"
 alias bf="bun format"
+
+# pnpm
+alias pi="pnpm install"
+alias pd="pnpm dev"
+alias pb="pnpm build"
+alias pl="pnpm lint"
+alias pf="pnpm format"
 
 # terraform
 alias ti="terraform init"
@@ -90,3 +96,9 @@ update_aliases() {
     echo "✅ Aliases updated successfully!"
 }
 alias ua="update_aliases"
+
+# misc
+alias bu='brew update && brew upgrade && brew autoremove && brew cleanup'
+
+# react scaffold — scaffolds ~/dev/<name> (see scripts/cra.sh)
+alias cra="$HOME/dev/terminal-aliases/scripts/cra.sh"
