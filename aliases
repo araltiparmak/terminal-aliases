@@ -1,12 +1,12 @@
 # Define base directories
-export DEV_FOLDER="dev"
-export REPO_NAME="terminal-aliases"
-export REPO_PATH="$HOME/$DEV_FOLDER/$REPO_NAME"
+DEV_FOLDER="dev"
+REPO_NAME="terminal-aliases"
+REPO_PATH="$HOME/$DEV_FOLDER/$REPO_NAME"
 
 # general
-alias a="open -e ~/$DEV_FOLDER/$REPO_NAME/aliases"
+alias a="open -e $REPO_PATH/aliases"
 alias z="open -e ~/.zshrc"
-alias d="cd ~/desktop"
+alias d="cd ~/Desktop"
 alias dd="cd ~/$DEV_FOLDER"
 alias c="clear"
 alias o="open ."
@@ -26,6 +26,9 @@ alias gp="git pull"
 alias gl="git clone"
 alias gc="git commit"
 alias gca="git commit --amend --no-edit"
+alias gm="git fetch origin && git rebase origin/main"
+alias gmm="git fetch origin && git merge --no-ff --no-commit origin/master"
+alias gmn="git fetch origin && git merge --no-ff --no-commit origin/main"
 
 # yarn
 alias yi="yarn install"
@@ -37,7 +40,7 @@ alias yl="yarn lint"
 alias yf="yarn format"
 
 # npm
-alias ni="npm init -y"
+alias ni="npm i"
 alias ns="npm run start"
 
 # bun
@@ -57,7 +60,6 @@ alias pf="pnpm format"
 alias ti="terraform init"
 alias tp="terraform plan"
 alias ta="terraform apply"
-alias ta-ap="terraform apply -auto-approve"
 alias tf="terraform fmt -recursive"
 alias tv="terraform validate"
 
@@ -65,8 +67,8 @@ alias tv="terraform validate"
 alias tg="terragrunt"
 alias tgp="terragrunt plan"
 alias tga="terragrunt apply"
-alias tgv="terragrunt validate"
 alias tgf="terragrunt hcl fmt"
+alias tgv="terragrunt validate"
 
 # docker
 alias di="docker images"
@@ -84,22 +86,29 @@ alias jv="java -version"
 alias gb="gradle build"
 alias gbr="gradle bootRun"
 
-
-mc() {
-   mkdir -p $1
-   cd $1
-}
-
 update_aliases() {
     echo "Updating aliases from repository..."
-    (cd "$REPO_PATH" && git pull) &&
-    source "$REPO_PATH/aliases" &&
-    echo "✅ Aliases updated successfully!"
+    if git -C "$REPO_PATH" pull && source "$REPO_PATH/aliases"; then
+        echo "✅ Aliases updated successfully!"
+    else
+        echo "❌ Alias update failed"
+    fi
 }
+
 alias ua="update_aliases"
+
+# make
+alias mm="make"
+alias ml="make lint-fix"
+alias mb="make lint-fix build"
+alias mt="make test"
 
 # misc
 alias bu='brew update && brew upgrade && brew autoremove && brew cleanup'
 
 # react scaffold — scaffolds ~/dev/<name> (see scripts/cra.sh)
 alias cra="$REPO_PATH/scripts/cra.sh"
+
+mc() {
+    mkdir -p -- "$1" && cd -- "$1"
+}

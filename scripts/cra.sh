@@ -48,8 +48,11 @@ echo "  port $PORT"
 
 step "scaffolding $DEST"
 mkdir -p "$DEST"
+trap 'rm -rf "$DEST"' EXIT
 cd "$DEST"
-pnpm create vite@latest . --template react-ts >/dev/null 2>&1 || die "pnpm create vite failed"
+LOG="$(mktemp -t cra)"
+pnpm create vite@latest . --template react-ts </dev/null >"$LOG" 2>&1 \
+  || die "pnpm create vite failed — see $LOG"
 pnpm install --silent || die "pnpm install failed"
 pnpm add -d tailwindcss@latest @tailwindcss/vite@latest --silent \
   || die "installing tailwind failed"
@@ -104,6 +107,7 @@ git init -b main -q
 git add -A
 git commit -q -m "Scaffold React + Vite + TS + Tailwind project"
 [[ -z "$(git status --porcelain)" ]] || die "working tree not clean after commit"
+trap - EXIT
 
 printf '\n\033[32m✓ ready\033[0m  %s\n' "$DEST"
 printf '  dev server : \033[4mhttp://localhost:%s\033[0m  (pnpm dev)\n' "$PORT"
