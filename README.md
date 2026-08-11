@@ -48,7 +48,7 @@ source PATH_TO_REPO/aliases
 - **Terraform / Terragrunt**: Infrastructure as code shortcuts
 - **Docker**: Manage containers and images quickly
 - **Java / Gradle**: Common JVM build commands
-- **Special Functions**: `mc` (mkdir + cd), `ua` (pull latest aliases and re-source), `bu` (update/upgrade/clean Homebrew)
+- **Special Functions**: `mc` (mkdir + cd), `ij` (open a folder in IntelliJ IDEA, defaults to `.`), `ua` (pull latest aliases and re-source), `bu` (update/upgrade/clean Homebrew)
 
 ## React Scaffolding (`cra`)
 

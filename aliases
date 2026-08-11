@@ -86,6 +86,18 @@ alias jv="java -version"
 alias gb="gradle build"
 alias gbr="gradle bootRun"
 
+# intellij — open a folder as a project (defaults to the current directory)
+IDEA_APP="/Applications/IntelliJ IDEA.app"
+
+ij() {
+    local target="${1:-.}"
+    if [ ! -d "$target" ]; then
+        echo "❌ Not a directory: $target"
+        return 1
+    fi
+    open -a "$IDEA_APP" "$target"
+}
+
 update_aliases() {
     echo "Updating aliases from repository..."
     if git -C "$REPO_PATH" pull && source "$REPO_PATH/aliases"; then
