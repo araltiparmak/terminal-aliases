@@ -15,7 +15,10 @@ alias md="mkdir"
 
 # claude
 alias cc="claude"
+alias ccs="claude --model sonnet"
+alias ccf="open ~/.claude/"
 alias cs="open -e ~/.claude/settings.json"
+alias us="$HOME/$DEV_FOLDER/claude-harness/scripts/update.sh"  # pull claude-harness, private-skills and Matt Pocock's skills, link into ~/.claude/skills
 
 # git
 alias add="git add ."
@@ -87,15 +90,13 @@ alias gb="gradle build"
 alias gbr="gradle bootRun"
 
 # intellij — open a folder as a project (defaults to the current directory)
-IDEA_APP="/Applications/IntelliJ IDEA.app"
-
 ij() {
     local target="${1:-.}"
     if [ ! -d "$target" ]; then
         echo "❌ Not a directory: $target"
         return 1
     fi
-    open -a "$IDEA_APP" "$target"
+    open -a "IntelliJ IDEA" "$target"
 }
 
 update_aliases() {

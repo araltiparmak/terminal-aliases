@@ -42,7 +42,7 @@ source PATH_TO_REPO/aliases
 ## Available Categories
 
 - **General**: Navigate directories, edit config files
-- **Claude**: Launch Claude Code
+- **Claude**: Launch Claude Code, update skills (`us`)
 - **Git**: Streamline your git workflow
 - **Package Managers**: Run yarn/npm/bun/pnpm commands faster
 - **Terraform / Terragrunt**: Infrastructure as code shortcuts
